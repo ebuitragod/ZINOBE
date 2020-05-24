@@ -4,6 +4,12 @@
 
 #### Exercise-Level-2
 
+|  Region | City Name |  Languaje | Time  |
+|---|---|---|---|
+|  Africa | Angola  |  AF4F4762F9BD3F0F4A10CAF5B6E63DC4CE543724 | 0.23 ms  |
+|   |   |   |   |
+|   |   |   |   |
+
 ##### Desarrolle una aplicacion en python que genere la tabla anterior, como se muestra [aquí](https://gitlab.com/eliecer.daza1/zinobe-python-exercises/-/blob/Exercise-Level-2/README.md),  teniendo las siguientes consideraciones:
 
 1. De [https://rapidapi.com/apilayernet/api/rest-countries-v1](https://rapidapi.com/apilayernet/api/rest-countries-v1), obtenga todas las regiones existentes.
