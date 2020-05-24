@@ -8,7 +8,7 @@ import timeit
 def obtener_regiones():
     """
     Función para obtener las regiones de la api. 
-    Primer punto de la prueba:
+    Punto 1:
     De https://rapidapi.com/apilayernet/api/rest-countries-v1, obtenga todas las regiones existentes.
     """
     regiones = []
@@ -25,7 +25,7 @@ def obtener_regiones():
 def encode_sha1(string, encoding='utf-8'):
     """
     Obteniendo el nombre del idioma en SHA1
-    Para el punto tercero
+    Punto 3:
     De https://restcountries.eu/ obtenga el nombre del idioma que habla el pais y encriptelo con SHA1
     """
     try:
@@ -38,7 +38,7 @@ def encode_sha1(string, encoding='utf-8'):
 def obtener_pais_por_region(region):
     """
     Vamos a obtener el primer país que se encuentre en la lista, por cada región. 
-    Segundo punto de la prueba:
+    Punto 2:
     De https://restcountries.eu/ Obtenga un pais por region apartir de la region optenida del punto 1.
     """
     tiempo_inicial = timeit.timeit()
@@ -51,6 +51,17 @@ def obtener_pais_por_region(region):
     return pais
 
 def calculo_tiempo_ejecucion(lst):
+    """
+    Cálculo del tiempo de ejecución de acuerdo al punto 4 de la prueba, 
+    creando la tabla en un dataframe de pandas de acuerdo al punto 5, 
+    y mostrando los tiempos (máximo, mínimo, promedio y total) de acuerdo al punto 6.
+    Punto 4:
+    En la columna Time ponga el tiempo que tardo en armar la fila (debe ser automatico).
+    Punto 5:
+    La tabla debe ser creada en un DataFrame con la libreria PANDAS.
+    Punto 6:
+    Con funciones de la libreria pandas muestre el tiempo total, el tiempo promedio, el tiempo minimo y el maximo que tardo en procesar toda las filas de la tabla.
+    """
     df = pd.DataFrame(lst)
     try:
         tiempo_total, tiempo_promedio =  df["time"].sum(), df["time"].mean()
