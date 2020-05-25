@@ -1,6 +1,12 @@
 
 from paises import get_regions, get_country_by_region, encode_sha1
 
+from hashlib import sha1
+
+import json
+import pandas as pd 
+import requests
+import timeit
 
 #=============================InicioTest
 #PROBANDO LA FUNCIÓN obtener_regiones

@@ -5,6 +5,14 @@ import pandas as pd
 import requests
 import timeit
 
+#=============================GlobalVariables
+#PROBANDO LA FUNCIÓN obtener_regiones
+regions = []
+headers = {"x-rapidapi-host": "restcountries-v1.p.rapidapi.com","x-rapidapi-key": "138bf105acmsh9559d0aa02b5a31p15c933jsn73b13c1900e8"}
+response = requests.get('https://restcountries-v1.p.rapidapi.com/all', headers=headers)
+response = response.json()
+#=============================FinGlobalVariables
+
 def get_regions():
     """
     Función para obtener las regiones de la api. 
@@ -49,6 +57,33 @@ def get_country_by_region(region):
     countries_by_region['time'] = total_time
 
     return countries_by_region
+#FALTA CODIFICAR EL LENGUAJE USANDO SHA1.
+
+def execution_time(lst):
+    """
+    Cálculo del tiempo de ejecución de acuerdo al punto 4 de la prueba, 
+    creando la tabla en un dataframe de pandas de acuerdo al punto 5, 
+    y mostrando los tiempos (máximo, mínimo, promedio y total) de acuerdo al punto 6.
+    Punto 4:
+    En la columna Time ponga el tiempo que tardo en armar la fila (debe ser automatico).
+    Punto 5:
+    La tabla debe ser creada en un DataFrame con la libreria PANDAS.
+    Punto 6:
+    Con funciones de la libreria pandas muestre el tiempo total, el tiempo promedio, el tiempo minimo y el maximo que tardo en procesar toda las filas de la tabla.
+    """
+    df = pd.DataFrame(lst)
+    try:
+        total_time, average_time =  df["time"].sum(), df["time"].mean()
+        min_time, max_time = df["time"].min(), df["time"].max()
+    except KeyError:
+        return "error: Dataframe doesn't have the column required"
+    return total_time, average_time, min_time, max_time
+
+def paises_json(lst):
+    with open('data.json', 'w') as json_file:
+        json.dump(lst, json_file)
+
+
 
 
 
