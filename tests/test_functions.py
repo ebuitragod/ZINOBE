@@ -2,9 +2,9 @@ from functions_countries import get_regions, get_country_by_region, encode_sha1,
 import pytest
 
 
-def test_get_regions():
-    obj = get_regions()
-    assert obj == ['Asia', 'Europe', 'Africa', 'Oceania', 'Americas', 'Polar']
+# def test_get_regions():
+#     obj = get_regions()
+#     assert obj == ['Asia', 'Europe', 'Africa', 'Oceania', 'Americas', 'Polar']
 
 # def test_get_country_by_region():
 #     region = 'Asia'

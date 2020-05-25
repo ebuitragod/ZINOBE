@@ -1,5 +1,5 @@
 
-from paises import get_regions, get_country_by_region, encode_sha1
+from functions_countries import get_regions, get_country_by_region, encode_sha1
 
 from hashlib import sha1
 
