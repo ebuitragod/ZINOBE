@@ -38,6 +38,21 @@ country_a = response[3]
 print(country_a['languages'][0])
 short_response = [{'name': country['name'], 'language': country['languages'], 'region': country['region']} \
                     for country in response]
+lang_vacios = 0
+lang_nulos = 0
+for country in response:
+    if country['languages'] == '':
+        lang_nulos += lang_nulos
+    elif country['languages'] == []:
+        lang_vacios += lang_vacios
+print('Lang_vacios y lang_nulos')
+print(lang_vacios)
+print(lang_nulos)
+
+print(type(response[110]['languages'][0]))
+# for country in response:
+#     country['languages'] = country['languages'][0]
+
 
 #'language': encode_sha1(res[0]['languages'][0]['name'])
 
@@ -57,6 +72,7 @@ countries_x_region = {}
 for country in short_response:
     for region in regions:
         if country['region'] == region:
+            country['language'] = encode_sha1(country['language'][0])
             countries_x_region[region] = country
 countries_x_region['time'] = (1.5-1)*1000
 print('country_x_region')
@@ -68,3 +84,8 @@ countries = get_country_by_region(regions)
 print("hola bb function get_country_by_regions")
 print(countries)
 #=============================FinTest
+
+#=============================InicioTestTest
+obj = regions
+print(regions)
+#=============================FinTestTest

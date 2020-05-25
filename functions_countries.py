@@ -53,11 +53,11 @@ def get_country_by_region(region):
     for country in short_response:
         for region in regions:
             if country['region'] == region:
+                country['language'] = encode_sha1(country['language'][0])
                 countries_by_region[region] = country
     countries_by_region['time'] = total_time
 
     return countries_by_region
-#FALTA CODIFICAR EL LENGUAJE USANDO SHA1.
 
 def execution_time(lst):
     """
@@ -79,7 +79,7 @@ def execution_time(lst):
         return "error: Dataframe doesn't have the column required"
     return total_time, average_time, min_time, max_time
 
-def paises_json(lst):
+def countries_json(lst):
     with open('data.json', 'w') as json_file:
         json.dump(lst, json_file)
 
