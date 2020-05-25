@@ -1,5 +1,5 @@
 import requests_cache
-from country import calc_exec_times, countries_to_json, get_first_country_by_region, get_regions
+from functions_countries import get_regions, get_country_by_region, encode_sha1, execution_time, countries_json
 from database import insert_countries
 
 # Initialize cache
@@ -16,10 +16,10 @@ if __name__ == "__main__":
     countries = []
     regions = get_regions()
     for i in regions:
-        country = get_first_country_by_region(i)
+        country = get_country_by_region(i)
         countries.append(country)
-    total_tm, avrg_tm, min_tm, max_tm = calc_exec_times(countries)
+    total_tm, avrg_tm, min_tm, max_tm = execution_time(countries)
     print(f'Total time: {total_tm} ms\nMean time: {avrg_tm} ms\n')
     print(f'Minimum time: {min_tm} ms\nMaximum time: {max_tm} ms\n')
     insert_countries(countries)
-    countries_to_json(countries)
+    countries_json(countries)
